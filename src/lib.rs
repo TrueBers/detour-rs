@@ -1,7 +1,7 @@
 #![recursion_limit = "1024"]
 #![cfg_attr(
   feature = "nightly",
-  feature(unboxed_closures, abi_thiscall)
+  feature(unboxed_closures, abi_thiscall, tuple_trait)
 )]
 #![cfg_attr(
   all(feature = "nightly", test),
@@ -145,7 +145,7 @@ mod tests {
     unsafe { hook2.enable()? };
 
     // This will call the previous hook's detour
-    assert_eq!(unsafe{ hook2.call(5, 5) }, 0);
+    assert_eq!(unsafe { hook2.call(5, 5) }, 0);
     assert_eq!(add(10, 5), 2);
     Ok(())
   }
