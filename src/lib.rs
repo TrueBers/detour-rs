@@ -1,12 +1,6 @@
 #![recursion_limit = "1024"]
-#![cfg_attr(
-  feature = "nightly",
-  feature(unboxed_closures, abi_thiscall, tuple_trait)
-)]
-#![cfg_attr(
-  all(feature = "nightly", test),
-  feature(naked_functions, core_intrinsics)
-)]
+#![cfg_attr(feature = "nightly", feature(unboxed_closures, tuple_trait))]
+#![cfg_attr(all(feature = "nightly", test), feature(naked_functions))]
 #![allow(named_asm_labels)]
 
 //! A cross-platform detour library written in Rust.
